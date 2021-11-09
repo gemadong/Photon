@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 using Photon.Pun;
 
@@ -14,7 +15,7 @@ public class PlayerCtrl : MonoBehaviourPun
 
     [SerializeField] private Color[] colors = null;
 
-    
+    [SerializeField] private Text text = null;
 
     [SerializeField] private float speed = 3.0f;
 
@@ -51,8 +52,16 @@ public class PlayerCtrl : MonoBehaviourPun
 
         LookAtMouseCursor();
     }
-    
-    
+
+    [PunRPC]
+    public void NicknameDisplay(string name)
+    {
+        text.text = name;
+        text.color = this.GetComponent<MeshRenderer>().material.color;
+        text.transform.position = Camera.main.WorldToScreenPoint(transform.position);
+    }
+
+
 
 
     [PunRPC]

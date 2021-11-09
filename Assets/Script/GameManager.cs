@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             PhotonView pv = go.GetPhotonView();
             pv.RPC("SetMaterial", RpcTarget.All, PhotonNetwork.CountOfPlayers);
+            pv.RPC("NicknameDisplay", RpcTarget.All, PhotonNetwork.NickName);
+
         }
     }
 
