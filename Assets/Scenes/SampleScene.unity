@@ -777,7 +777,7 @@ MonoBehaviour:
   gameVersion: 0.0.1
   maxPlayerPerRoom: 4
   nickName: 
-  connectButton: {fileID: 392697619}
+  connectButton: {fileID: 0}
 --- !u!4 &1076640465
 Transform:
   m_ObjectHideFlags: 0
