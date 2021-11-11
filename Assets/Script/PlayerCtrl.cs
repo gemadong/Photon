@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 using Photon.Pun;
 
@@ -13,6 +14,8 @@ public class PlayerCtrl : MonoBehaviourPun
 
 
     [SerializeField] private Color[] colors = null;
+
+    [SerializeField] private Text P_name = null;
 
     
 
@@ -49,13 +52,18 @@ public class PlayerCtrl : MonoBehaviourPun
 
         if (Input.GetMouseButtonDown(0)) ShootBullet();
 
+        
         LookAtMouseCursor();
     }
-    
-    
+
 
 
     [PunRPC]
+    public void Setname(string _name)
+    {
+        //Debug.LogError(_playerNum + " : " + colors.Length);
+        P_name.text = _name;
+    }
     public void SetMaterial(int _playerNum)
     {
         //Debug.LogError(_playerNum + " : " + colors.Length);
