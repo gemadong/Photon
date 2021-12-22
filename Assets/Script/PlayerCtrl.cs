@@ -61,9 +61,9 @@ public class PlayerCtrl : MonoBehaviourPun
     [PunRPC]
     public void Setname(string _name)
     {
-        //Debug.LogError(_playerNum + " : " + colors.Length);
         P_name.text = _name;
     }
+    [PunRPC]
     public void SetMaterial(int _playerNum)
     {
         //Debug.LogError(_playerNum + " : " + colors.Length);

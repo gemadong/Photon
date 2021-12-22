@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         // 현재 생성되어 있는 모든 포톤뷰 가져오기
         PhotonView[] photonViews = FindObjectsOfType<PhotonView>();
 
+        playerGoList.Initialize();
         // 매번 재정렬을 하는게 좋으므로 플레이어 게임오브젝트 리스트를 초기화
         System.Array.Clear(playerGoList, 0, playerGoList.Length);
 
@@ -93,7 +94,12 @@ public class GameManager : MonoBehaviourPunCallbacks
                 }
             }
         }
-
+        for (int i = 0; i < 4; i++)
+        {
+            if (playerGoList[i] == null) return;
+            playerGoList[i].GetComponent<PlayerCtrl>().SetMaterial(i + 1);
+            playerGoList[i].GetComponent<PlayerCtrl>().Setname(photonViews[i].Owner.NickName); ;
+        }
         // 디버그용
         PrintPlayerList();
     }
